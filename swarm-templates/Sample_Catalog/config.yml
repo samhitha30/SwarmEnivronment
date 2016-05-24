@@ -1,0 +1,5 @@
+name: Sample_catalog
+description: |
+  Docker Sample_catalog
+version: v0.3.0
+category: Rancher Services
