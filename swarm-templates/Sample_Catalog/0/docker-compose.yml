@@ -1,5 +1,5 @@
 couchbase:
-  image: couch_base
+  image: registry.virtusacloud.net:5000/couch_base
   ports:
     - 8091:8091
     - 8092:8092
@@ -8,22 +8,24 @@ couchbase:
   #volumes_from:
    # - linking_volume_couchbase
   environment:
-    BUCKET: sync_gateway
+    BUCKET: sensor
     CB_USER: Administrator
     CB_PASS: password
-
 couchdb:
-  image: couchdb_config
+  image: registry.virtusacloud.net:5000/couchdb
   ports:
     - 5984:5984
   links:
     - couchbase
  #   - sync_gateway
-    
-sync_gateway:
-  image: sync_gateway
+syncgateway:
+  image: registry.virtusacloud.net:5000/syncgateway
   ports:
     - 4984:4984
     - 4985:4985
   links:
     - couchbase
+talend :
+  tty: true
+  stdin_open: true
+  image: registry.virtusacloud.net:5000/talend
